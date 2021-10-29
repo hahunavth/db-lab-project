@@ -1,6 +1,6 @@
 # Shopify Client
 
-## Rquiment
+## Rquirement
 - Nodejs
 
 ## Install dependencies
