@@ -201,7 +201,7 @@ console.log(json_str)
                     (result) => {
                         this.setState({
                             isLoaded: true,
-                            product: result.detail,
+                            product: result.detail || null,
                             url: result.url,
                             Qty: result.qty,
                             currentImage: result.url[0],
@@ -287,7 +287,7 @@ if(this.state.qty===0) this.setState({
                                 </div>
                                 <div className="col-md-5 col-lg-5">
                                     <div className="product-details">
-                                        <h2 className="product-name">{this.state.product.nameproduct}</h2>
+                                        <h2 className="product-name">{this.state.product?.nameproduct || 'Database error, not found product'}</h2>
                                         <div>
                                             <div className="product-rating">
                                                 <i className="fa fa-star"></i>
@@ -299,7 +299,7 @@ if(this.state.qty===0) this.setState({
                                             <span className="review-link hover"  onClick={() => (this.changePage(3))}>3 nhận xét</span>
                                         </div>
                                         <div>
-                                            <h3 className="product-price"> {formatter.format(this.state.product.price * 1000)}  </h3>
+                                            <h3 className="product-price"> {formatter.format((this.state.product?.price || 0) * 1000)}  </h3>
 
                                         </div>
                                         <p></p>
@@ -355,7 +355,7 @@ if(this.state.qty===0) this.setState({
                                                 <div className="tab-pane fade-in active">
                                                     <div className="row">
                                                         <div className="col-md-12"style={{fontSize:'15px'}}>
-                                                            <p>{this.state.product.describepr}</p>
+                                                            <p>{this.state.product?.describepr }</p>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -26,10 +26,10 @@ class Footer extends React.Component{
 								<div className="footer">
 									<h3 className="footer-title">Thành viên </h3>
 									<ul className="footer-links" style={{fontSize:'16px'}}> 
-										<li>1.Trần Thị Hằng</li>
+										{/* <li>1.Trần Thị Hằng</li>
 										<li>2.Dương Thị Huê</li>
 										<li>3.Quyền Quang Huy</li>
-										<li>4.Cao Quốc Khánh</li>
+										<li>4.Cao Quốc Khánh</li> */}
 										
 									</ul>
 								</div>

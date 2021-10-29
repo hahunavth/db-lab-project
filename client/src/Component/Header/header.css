@@ -10,3 +10,44 @@
     color:white;
     padding-left: 15px;
 }
+
+/* Override app.css */
+.header-search form .search-btn {
+    height: 40px;
+    width: 100px;
+    background: #D10024;
+    color: #FFF;
+    font-weight: 700;
+    border: none;
+    border-radius: 0px 0 0 0px;
+  }
+
+  .section-title {
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 15px;
+  }
+
+  .section-title::after {
+    content: ' ';
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    top: 7px;
+    left: 0px;
+    position: absolute;
+}
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2;
+    background: #fff;
+    padding: 0px 18px;
+    color: #232323;
+    display: inline-table;
+}
+
+.center {
+    text-align: center;
+}
