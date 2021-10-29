@@ -1,0 +1,6 @@
+// put : localhost:3000/admin/update
+{
+   "id":"1",
+   "color":"Black",
+   "quantity":10
+}
