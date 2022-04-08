@@ -4,9 +4,9 @@ import Header from "../Header/header";
 import Footer from "../footer/footer";
 import ProductBox from "../product/productBox";
 import NewestLetter from "../newestLetter/newestLetter";
-import OwlCarousel from "react-owl-carousel";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
+// import OwlCarousel from "react-owl-carousel";
+// import "owl.carousel/dist/assets/owl.carousel.css";
+// import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
@@ -30,12 +30,14 @@ class Home extends React.Component {
       .then((res) => res.json())
       .then(
         (result) => {
+          console.log(result);
           this.setState({
             isLoaded: true,
-            product: result.detail || [],
+            product: result.products || [],
             url: result.url,
           });
           console.log(typeof this.state.product);
+          console.log(result);
         },
         // error handler
         (error) => {
@@ -60,17 +62,17 @@ class Home extends React.Component {
             </div>
           </div>
 
-          <div className="row" style={{width: "100%"}}>
+          <div className="row" style={{ width: "100%" }}>
             <div className="col-md-12">
-            <div className="center">
-              <div className="btn btn-primary m-3 btn-lg">Đồng hồ nam</div>
-              <div className="btn btn-danger m-3 btn-lg">Đồng hồ nữ</div>
-            </div>
+              <div className="center">
+                <div className="btn btn-primary m-3 btn-lg">Đồng hồ nam</div>
+                <div className="btn btn-danger m-3 btn-lg">Đồng hồ nữ</div>
+              </div>
             </div>
           </div>
 
           <div className="container">
-            <div className="row">
+            {/* <div className="row">
               {this.state.product.length && (
                 <OwlCarousel
                   className="owl-theme"
@@ -105,7 +107,7 @@ class Home extends React.Component {
                   ))}
                 </OwlCarousel>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -123,16 +125,19 @@ class Home extends React.Component {
               <div className="products-tabs">
                 <div id="tab2" className="tab-pane fade in active">
                   <div className="products-slick" data-nav="#slick-nav-2">
-                    {this.state.product.map((index, key) => (
-                      <ProductBox
-                        id={index.idproduct}
-                        name={index.nameproduct}
-                        price={index.price}
-                        url={this.state.url[key].urlimage}
-                        key={key}
-                        isNew={false}
-                      />
-                    ))}
+                    {this.state.product.map((index, key) => {
+                      // console.log(index.);
+                      return (
+                        <ProductBox
+                          id={index.idLoaiDongHo}
+                          name={index.ten?.toString()}
+                          price={index.giaTien}
+                          url={index.urlAnh}
+                          key={index.ten}
+                          isNew={key <= 1}
+                        />
+                      );
+                    })}
                   </div>
                   <div id="slick-nav-2" className="products-slick-nav"></div>
                 </div>
